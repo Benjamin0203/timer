@@ -4,8 +4,6 @@ No numbers are provided: Easy. It should just not beep at all and end immediatel
 An input is a negative number: Ignore/skip any numbers that are negative. We can't schedule anything in the past.
 An input is not a number: Ignore/skip these as well, instead of attempting to call setTimeout with a non-number. */
 const args = process.argv.slice(2);
-// console.log(args);
-// process.stdout.write('\x07');
 
 args.every(element => {
   element = Number(element);
@@ -15,6 +13,7 @@ args.every(element => {
   time = element * 1000;
   setTimeout(() => {
     process.stdout.write('\x07');
+    console.log(element, " seconds have passed");
   }, time)
   return true;
 });
